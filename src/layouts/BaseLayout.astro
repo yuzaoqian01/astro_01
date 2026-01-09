@@ -1,10 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-
-const pageTitle = '首页';
+const { pageTitle } = Astro.props;
 ---
-
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -14,8 +13,12 @@ const pageTitle = '首页';
     <title>{pageTitle}</title>
   </head>
   <body>
-    <BaseLayout pageTitle={pageTitle}>
-	<h2>我超棒的博客副标题</h2>
-	</BaseLayout>
+    <Header />
+    <h1>{pageTitle}</h1>
+    <slot />
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
