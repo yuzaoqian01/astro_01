@@ -15,9 +15,18 @@ const pageTitle = '首页';
     <title>{pageTitle}</title>
   </head>
   <body>
+    <button hx-post="/partials/clicked/"
+        hx-trigger="click"
+        hx-target="#parent-div"
+        hx-swap="innerHTML"
+      >
+        点我！
+      </button>
+    <a href="/about" data-astro-prefetch>与加载</a>
+
     <BaseLayout pageTitle={pageTitle}>
-	<h2>我超棒的博客副标题</h2>
-	<Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
-	</BaseLayout>
+    <h2>我超棒的博客副标题</h2>
+    <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    </BaseLayout>
   </body>
 </html>
