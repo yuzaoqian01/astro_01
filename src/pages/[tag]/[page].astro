@@ -1,0 +1,22 @@
+---
+export function getStaticPaths({paginate}) {
+  const allTags = ["red", "blue", "green"];
+  const allPosts = Object.values(import.meta.glob("../pages/post/*.md", { eager: true }));
+  // 每个标签都会返回 `paginate()` 的结果。
+  // 确保将 `{ params: { tag }}` 传递给 `paginate()`
+  // 这样 Astro 才知道怎么把这些结果进行分组
+  return allTags.flatMap((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tag === tag);
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: 10
+    });
+  });
+}
+
+const { page } = Astro.props;
+const params = Astro.params;
+---
+
+<p>Tag: {params.tag}</p>
+<h1>Page {page.currentPage}</h1>

@@ -11,6 +11,8 @@ export const greeting = "你好";
 
 现在可以用变量了：{greeting}！
 
+<Component property="greeting" />
+
 <div style="padding: 1rem; background: #f0f0f0;">
   这是一个 JSX 元素
 </div>
