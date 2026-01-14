@@ -1,15 +1,11 @@
 
 ---
-title: 测试MDX
+import Component from '~/components/Component.astro';
 ---
 
 # 这是 MDX 测试
 
 普通的 Markdown 文本。
-
-export const greeting = "你好";
-
-现在可以用变量了：{greeting}！
 
 <Component property="greeting" />
 
