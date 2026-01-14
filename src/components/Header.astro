@@ -3,19 +3,43 @@ import Navigation from './Navigation.astro';
 import Menu from './Menu.astro';
 import ThemeIcon from './ThemeIcon.astro';
 ---
-<header>
- <nav>
-    <div>
-        <ThemeIcon />
-        <Menu />
-   </div>
+<header class="site-header">
+  <nav class="site-nav">
+    <div class="site-controls">
+      <ThemeIcon />
+      <Menu />
+    </div>
     <Navigation />
- </nav>
+  </nav>
 </header>
 
 <style>
- div {
-   display: flex;
-   justify-content: space-between;
- }
+  .site-header {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 15px -10px rgba(15, 23, 42, 0.25);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .site-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  :global(.dark) .site-header {
+    background-color: rgba(15, 23, 42, 0.95);
+    border-color: #1f2937;
+    box-shadow: 0 10px 25px -12px rgba(15, 23, 42, 0.8);
+  }
 </style>
